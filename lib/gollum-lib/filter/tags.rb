@@ -156,13 +156,13 @@ class Gollum::Filter::Tags < Gollum::Filter
       end
 
       if (width = opts['width'])
-        if width =~ /^\d+(\.\d+)?(em|px)$/
+        if width =~ /^\d+(\.\d+)?(em|px|%)$/
           attrs << %{width="#{width}"}
         end
       end
 
       if (height = opts['height'])
-        if height =~ /^\d+(\.\d+)?(em|px)$/
+        if height =~ /^\d+(\.\d+)?(em|px|%)$/
           attrs << %{height="#{height}"}
         end
       end
