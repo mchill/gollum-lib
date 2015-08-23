@@ -8,10 +8,6 @@ class Gollum::Filter::Code < Gollum::Filter
     case @markup.format
     when :txt
       return data
-    when :asciidoc
-      data.gsub!(/^(\[source,([^\r\n]*)\]\n)?----\n(.+?)\n----$/m) do
-        cache_codeblock(Regexp.last_match[2], Regexp.last_match[3])
-      end
     when :org
       org_headers = %r{([ \t]*#\+HEADER[S]?:[^\r\n]*\n)*}
       org_name = %r{([ \t]*#\+NAME:[^\r\n]*\n)?}
